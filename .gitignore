@@ -1,4 +1,12 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Avoid accidental upload of the Sketch and Figma design files
+*.sketch
+*.fig
+
+# Avoid accidental XD upload if you convert the design file
+*.xd
+
+# Avoid your project being littered with annoying .DS_Store files!
+.prettierignore
 
 # dependencies
 /node_modules
