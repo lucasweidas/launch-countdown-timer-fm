@@ -1,5 +1,10 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { Red_Hat_Text } from 'next/font/google';
+
+const redHatText = Red_Hat_Text({
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Frontend Mentor | Launch Countdown Timer',
@@ -13,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={redHatText.className}>{children}</body>
     </html>
   );
 }
