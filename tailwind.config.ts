@@ -20,8 +20,16 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        stars: 'url("/images/bg-stars.svg")',
-        'pattern-hills': 'url("/images/pattern-hills.svg")',
+        hero: 'url("/images/bg-stars.svg"), url("/images/pattern-hills.svg"), linear-gradient(to bottom, #1A1823, #211A29, #2F2439)',
+      },
+      backgroundPosition: {
+        'hero-pos': 'top center, bottom center',
+      },
+      backgroundSize: {
+        'hero-size': '100% auto, 100% auto',
+      },
+      screens: {
+        xs: '375px',
       },
     },
   },
