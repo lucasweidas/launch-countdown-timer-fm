@@ -1,47 +1,15 @@
+import { Countdown } from '@/components/Countdown';
 import Link from 'next/link';
 
 export default function Home() {
   return (
     <div className="flex flex-col justify-between min-h-screen items-center px-6">
       <main className="pt-36">
-        <div className="flex flex-col items-center gap-14">
-          <h1 className="text-lg font-bold text-white uppercase tracking-[0.3em] text-center">
+        <div className="flex flex-col items-center gap-14 md:gap-24">
+          <h1 className="text-lg font-bold text-white uppercase tracking-[0.3em] text-center md:text-xl">
             We&apos;re launching soon
           </h1>
-          <div className="grid grid-cols-2 gap-4 xs:grid-cols-4">
-            <div className="flex flex-col gap-3 items-center">
-              <div className="flex items-center justify-center w-[4.25rem] h-16 bg-indigo-700 rounded-md">
-                <span className="font-bold text-rose-300 text-3xl">08</span>
-              </div>
-              <span className="uppercase text-indigo-400 text-[0.5rem] font-medium tracking-[0.3em]">
-                days
-              </span>
-            </div>
-            <div className="flex flex-col gap-3 items-center">
-              <div className="flex items-center justify-center w-[4.25rem] h-16 bg-indigo-700 rounded-md">
-                <span className="font-bold text-rose-300 text-3xl">23</span>
-              </div>
-              <span className="uppercase text-indigo-400 text-[0.5rem] font-medium tracking-[0.3em]">
-                hours
-              </span>
-            </div>
-            <div className="flex flex-col gap-3 items-center">
-              <div className="flex items-center justify-center w-[4.25rem] h-16 bg-indigo-700 rounded-md">
-                <span className="font-bold text-rose-300 text-3xl">55</span>
-              </div>
-              <span className="uppercase text-indigo-400 text-[0.5rem] font-medium tracking-[0.3em]">
-                minutes
-              </span>
-            </div>
-            <div className="flex flex-col gap-3 items-center">
-              <div className="flex items-center justify-center w-[4.25rem] h-16 bg-indigo-700 rounded-md">
-                <span className="font-bold text-rose-300 text-3xl">41</span>
-              </div>
-              <span className="uppercase text-indigo-400 text-[0.5rem] font-medium tracking-[0.3em]">
-                seconds
-              </span>
-            </div>
-          </div>
+          <Countdown />
         </div>
       </main>
       <footer className="py-12">
