@@ -28,6 +28,18 @@ const config: Config = {
       backgroundSize: {
         'hero-size': '100% auto, 100% auto',
       },
+      width: {
+        timer: '4.25rem',
+        'timer-lg': '9.25rem',
+      },
+      height: {
+        timer: '4rem',
+        'timer-lg': '8.75rem',
+      },
+      boxShadow: {
+        timer: '0 5px 2px hsl(234, 17%, 12%)',
+        'timer-lg': '0 10px 2px hsl(234, 17%, 12%)',
+      },
       screens: {
         xs: '375px',
       },

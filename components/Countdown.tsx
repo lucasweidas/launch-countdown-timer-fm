@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-interface TimerBoxProps {
+interface TimerProps {
   time: number;
   label: string;
 }
@@ -15,18 +15,18 @@ export function Countdown() {
 
   return (
     <div className="grid grid-cols-2 gap-4 xs:grid-cols-4 md:gap-8">
-      <TimerBox time={days} label="days" />
-      <TimerBox time={hours} label="hours" />
-      <TimerBox time={minutes} label="minutes" />
-      <TimerBox time={seconds} label="seconds" />
+      <Timer time={days} label="days" />
+      <Timer time={hours} label="hours" />
+      <Timer time={minutes} label="minutes" />
+      <Timer time={seconds} label="seconds" />
     </div>
   );
 }
 
-function TimerBox({ time, label }: TimerBoxProps) {
+function Timer({ time, label }: TimerProps) {
   return (
     <div className="flex flex-col gap-3 items-center md:gap-6">
-      <div className="flex items-center justify-center w-[4.25rem] h-16 bg-indigo-700 rounded-md md:w-[9.25rem] md:h-[8.75rem]">
+      <div className="flex items-center justify-center w-timer h-timer bg-indigo-700 rounded-md md:w-timer-lg md:h-timer-lg shadow-timer md:shadow-timer-lg">
         <span className="font-bold text-rose-300 text-3xl md:text-7xl">
           {time.toString().padStart(2, '0')}
         </span>
