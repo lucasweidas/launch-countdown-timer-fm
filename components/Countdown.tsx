@@ -55,8 +55,8 @@ function Timer({ initialTime, attr, label }: TimerProps) {
 function flipAllCards(time: number) {
   const seconds = time % 60;
   const minutes = Math.floor(time / 60) % 60;
-  const hours = Math.floor((time / 3600) % 24);
-  const days = Math.floor((time / 86400) % 30);
+  const hours = Math.floor(time / 3600) % 24;
+  const days = Math.floor(time / 86400) % 30;
 
   flip(document.querySelector('[data-timer="days"]')!, days);
   flip(document.querySelector('[data-timer="hours"]')!, hours);
