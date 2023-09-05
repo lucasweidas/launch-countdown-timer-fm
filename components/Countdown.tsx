@@ -30,10 +30,10 @@ export function Countdown() {
 
   return (
     <div className="grid grid-cols-2 gap-4 xs:grid-cols-4 md:gap-8">
-      <Timer initialTime="8" attr="days" label="days" />
-      <Timer initialTime="23" attr="hours" label="hours" />
-      <Timer initialTime="55" attr="minutes" label="minutes" />
-      <Timer initialTime="41" attr="seconds" label="seconds" />
+      <Timer initialTime="0" attr="days" label="days" />
+      <Timer initialTime="0" attr="hours" label="hours" />
+      <Timer initialTime="0" attr="minutes" label="minutes" />
+      <Timer initialTime="0" attr="seconds" label="seconds" />
     </div>
   );
 }
