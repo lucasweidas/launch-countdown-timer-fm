@@ -4,27 +4,33 @@
 
 @layer components {
   .flip-card {
+    width: 9.25rem;
+    height: 8.75rem;
     position: relative;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 0.1em;
+    box-shadow: 0 10px 2px hsl(234, 17%, 12%);
   }
 
   .top,
   .bottom,
   .flip-card .top-flip,
   .flip-card .bottom-flip {
+    width: 100%;
+    height: 50%;
     font-size: 4.5rem;
-    height: 0.75em;
     line-height: 1;
-    padding: 0.25em;
     overflow: hidden;
+    border-radius: 0.5rem;
+    color: hsl(345, 95%, 68%);
+    font-weight: 700;
+    text-align: center;
+    display: block;
   }
 
   .top,
   .flip-card .top-flip {
-    background-color: #f7f7f7;
+    background-color: hsl(235, 16%, 14%);
     border-top-right-radius: 0.1em;
     border-top-left-radius: 0.1em;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -32,9 +38,7 @@
 
   .bottom,
   .flip-card .bottom-flip {
-    background-color: white;
-    display: flex;
-    align-items: flex-end;
+    background-color: hsl(236, 21%, 26%);
     border-bottom-right-radius: 0.1em;
     border-bottom-left-radius: 0.1em;
   }
