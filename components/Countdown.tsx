@@ -62,13 +62,13 @@ export function Countdown() {
 const Timer = memo(function Timer({ time, label }: TimerProps) {
   return (
     <div className="flex flex-col gap-3 items-center md:gap-6">
-      <div className="w-timer md:w-timer-lg h-timer md:h-timer-lg relative shadow-timer md:shadow-timer-lg flex flex-col rounded-md">
+      <div className="w-timer md:w-timer-lg h-timer md:h-timer-lg relative shadow-timer md:shadow-timer-lg flex flex-col rounded-sm md:rounded-md">
         <AnimatePresence initial={false} mode="popLayout">
           <motion.div
             key={crypto.randomUUID()}
             variants={flipTopVariants}
             exit="exit"
-            className="bg-indigo-800 w-full h-2/4 rounded-md overflow-hidden relative flex justify-center"
+            className="w-full h-2/4 rounded-t-sm md:rounded-t-md overflow-hidden relative flex justify-center bg-corner-t md:bg-corner-t-md bg-corner-size bg-no-repeat"
           >
             <span className="text-rose-300 font-bold text-4xl md:text-7xl leading-none absolute top-3.5 md:top-[2.125rem]">
               {time.toString().padStart(2, '0')}
@@ -80,7 +80,7 @@ const Timer = memo(function Timer({ time, label }: TimerProps) {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="bg-indigo-700 w-full h-2/4 rounded-md overflow-hidden relative flex justify-center"
+            className="bg-indigo-700 w-full h-2/4 rounded-b-sm md:rounded-b-md overflow-hidden relative flex justify-center bg-corner-b md:bg-corner-b-md bg-corner-size bg-no-repeat"
           >
             <span className="text-rose-300 font-bold text-4xl md:text-7xl leading-none absolute bottom-3.5 md:bottom-[2.125rem]">
               {time.toString().padStart(2, '0')}

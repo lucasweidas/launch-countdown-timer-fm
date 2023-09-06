@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${redHatText.className} bg-hero bg-no-repeat bg-hero-pos min-h-screen xl:bg-hero-size`}
+        className={`${redHatText.className} bg-hero bg-no-repeat min-h-screen xl:bg-hero-size`}
       >
         {children}
       </body>

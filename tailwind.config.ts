@@ -21,13 +21,24 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        hero: 'url("/images/bg-stars.svg"), url("/images/pattern-hills.svg"), linear-gradient(to bottom, #1A1823, #211A29, #2F2439)',
+        hero: 'url("/images/bg-stars.svg"), url("/images/pattern-hills.svg"), linear-gradient(to bottom, hsl(251, 19%, 12%), hsl(268, 22%, 13%), hsl(271, 23%, 18%))',
+        'corner-t':
+          'radial-gradient(circle at 0 100%,hsl(234, 17%, 12%) 4px, hsl(240, 21%, 22%) 5px),radial-gradient(circle at 100% 100%,hsl(234, 17%, 12%) 4px, hsl(240, 21%, 22%) 5px)',
+        'corner-t-md':
+          'radial-gradient(circle at 0 100%,hsl(234, 17%, 12%) 6px, hsl(240, 21%, 22%) 7px),radial-gradient(circle at 100% 100%,hsl(234, 17%, 12%) 6px, hsl(240, 21%, 22%) 7px)',
+        'corner-b':
+          'radial-gradient(circle at 0 0,hsl(234, 17%, 12%) 4px, hsl(236, 21%, 26%) 5px),radial-gradient(circle at 100% 0,hsl(234, 17%, 12%) 4px, hsl(236, 21%, 26%) 5px)',
+        'corner-b-md':
+          'radial-gradient(circle at 0 0,hsl(234, 17%, 12%) 6px, hsl(236, 21%, 26%) 7px),radial-gradient(circle at 100% 0,hsl(234, 17%, 12%) 6px, hsl(236, 21%, 26%) 7px)',
       },
       backgroundPosition: {
-        'hero-pos': 'top center, bottom center',
+        hero: 'top center, bottom center',
+        'corner-t': 'bottom left, bottom right',
+        'corner-b': 'top left, top right',
       },
       backgroundSize: {
         'hero-size': '100% auto, 100% auto',
+        'corner-size': '50% 100%',
       },
       width: {
         timer: '4.25rem',
@@ -43,6 +54,9 @@ const config: Config = {
       },
       screens: {
         xs: '375px',
+      },
+      borderRadius: {
+        sm: '0.25rem',
       },
     },
   },
