@@ -44,9 +44,10 @@ const flipBottomVariants: Variants = {
   },
 };
 
+const END_DATE = new Date(Date.now() + 777_600_000);
+
 export function Countdown() {
-  const endAt = useRef(new Date(Date.now() + 777_600_000));
-  const { days, hours, minutes, seconds } = useCountdown(endAt.current);
+  const { days, hours, minutes, seconds } = useCountdown(END_DATE);
 
   return (
     <div className="grid grid-cols-2 gap-4 xs:grid-cols-4 md:gap-8">
@@ -95,6 +96,7 @@ const Timer = memo(function Timer({ time, label }: TimerProps) {
 });
 
 function useCountdown(endAt: Date) {
+  const endDate = useRef(endAt);
   const previousTimeBetweenDates = useRef(0);
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -102,10 +104,13 @@ function useCountdown(endAt: Date) {
   const [days, setDays] = useState(0);
 
   useEffect(() => {
+    endDate.current = getLocalEndDate() ?? endAt;
+    setLocalEndDate(endDate.current);
+
     const interval = setInterval(() => {
       const currentDate = new Date();
       const timeBetweenDates = Math.ceil(
-        (endAt.getTime() - currentDate.getTime()) / 1000
+        (endDate.current.getTime() - currentDate.getTime()) / 1000
       );
 
       const newSeconds = timeBetweenDates % 60;
@@ -132,4 +137,13 @@ function useCountdown(endAt: Date) {
     hours,
     days,
   };
+}
+
+function getLocalEndDate() {
+  const endDate = localStorage.getItem('endDate');
+  return endDate ? new Date(+endDate) : null;
+}
+
+function setLocalEndDate(endDate: Date) {
+  localStorage.setItem('endDate', JSON.stringify(endDate.getTime()));
 }
