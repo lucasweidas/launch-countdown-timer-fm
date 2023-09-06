@@ -61,16 +61,16 @@ export function Countdown() {
 
 const Timer = memo(function Timer({ time, label }: TimerProps) {
   return (
-    <div className="flex flex-col gap-3 items-center md:gap-6">
-      <div className="w-timer md:w-timer-lg h-timer md:h-timer-lg relative shadow-timer md:shadow-timer-lg flex flex-col rounded-sm md:rounded-md">
+    <div className="flex flex-col items-center gap-3 md:gap-6">
+      <div className="relative flex h-timer w-timer flex-col rounded-sm shadow-timer md:h-timer-lg md:w-timer-lg md:rounded-md md:shadow-timer-lg">
         <AnimatePresence initial={false} mode="popLayout">
           <motion.div
             key={crypto.randomUUID()}
             variants={flipTopVariants}
             exit="exit"
-            className="w-full h-2/4 rounded-t-sm md:rounded-t-md overflow-hidden relative flex justify-center bg-corner-t md:bg-corner-t-md bg-corner-size bg-no-repeat"
+            className="relative flex h-2/4 w-full justify-center overflow-hidden rounded-t-sm bg-corner-t bg-corner-size bg-no-repeat md:rounded-t-md md:bg-corner-t-md"
           >
-            <span className="text-rose-300 font-bold text-4xl md:text-7xl leading-none absolute top-3.5 md:top-[2.125rem]">
+            <span className="absolute top-3.5 text-4xl font-bold leading-none text-rose-300 md:top-[2.125rem] md:text-7xl">
               {time.toString().padStart(2, '0')}
             </span>
           </motion.div>
@@ -80,15 +80,16 @@ const Timer = memo(function Timer({ time, label }: TimerProps) {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="bg-indigo-700 w-full h-2/4 rounded-b-sm md:rounded-b-md overflow-hidden relative flex justify-center bg-corner-b md:bg-corner-b-md bg-corner-size bg-no-repeat"
+            className="relative flex h-2/4 w-full justify-center overflow-hidden rounded-b-sm bg-indigo-700 bg-corner-b bg-corner-size bg-no-repeat md:rounded-b-md md:bg-corner-b-md"
           >
-            <span className="text-rose-300 font-bold text-4xl md:text-7xl leading-none absolute bottom-3.5 md:bottom-[2.125rem]">
+            <span className="absolute bottom-3.5 text-4xl font-bold leading-none text-rose-300 md:bottom-[2.125rem] md:text-7xl">
               {time.toString().padStart(2, '0')}
             </span>
           </motion.div>
         </AnimatePresence>
+        <span className="w-[calc(100%-8px) absolute left-[6px] top-2/4 z-20 h-[1px] -translate-y-2/4 bg-indigo-800/40 md:w-[calc(100%-12px)]" />
       </div>
-      <span className="uppercase text-indigo-400 text-[0.5rem] font-bold tracking-[0.3em] md:text-sm">
+      <span className="text-[0.5rem] font-bold uppercase tracking-[0.3em] text-indigo-400 md:text-sm">
         {label}
       </span>
     </div>
@@ -110,7 +111,7 @@ function useCountdown(endAt: Date) {
     const interval = setInterval(() => {
       const currentDate = new Date();
       const timeBetweenDates = Math.ceil(
-        (endDate.current.getTime() - currentDate.getTime()) / 1000
+        (endDate.current.getTime() - currentDate.getTime()) / 1000,
       );
 
       const newSeconds = timeBetweenDates % 60;

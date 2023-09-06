@@ -3,21 +3,21 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-between min-h-screen items-center px-6">
+    <div className="flex min-h-screen flex-col items-center justify-between px-6">
       <main className="pt-36">
         <div className="flex flex-col items-center gap-14 md:gap-24">
-          <h1 className="text-lg font-bold text-white uppercase tracking-[0.3em] text-center md:text-xl">
+          <h1 className="text-center text-lg font-bold uppercase tracking-[0.3em] text-white md:text-xl">
             We&apos;re launching soon
           </h1>
           <Countdown />
         </div>
       </main>
       <footer className="py-12">
-        <ul className="flex gap-8 items-center justify-center">
+        <ul className="flex items-center justify-center gap-8">
           <li>
             <Link
               href="#"
-              className="text-indigo-400 hover:text-rose-300 transition-colors"
+              className="text-indigo-400 transition-colors hover:text-rose-300"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path
@@ -30,7 +30,7 @@ export default function Home() {
           <li>
             <Link
               href="#"
-              className="text-indigo-400 hover:text-rose-300 transition-colors"
+              className="text-indigo-400 transition-colors hover:text-rose-300"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path
@@ -43,7 +43,7 @@ export default function Home() {
           <li>
             <Link
               href="#"
-              className="text-indigo-400 hover:text-rose-300 transition-colors"
+              className="text-indigo-400 transition-colors hover:text-rose-300"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path
