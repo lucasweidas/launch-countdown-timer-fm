@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Mentor - Launch countdown timer
 
-## Getting Started
+## Welcome! 👋
 
-First, run the development server:
+Thanks for checking out this front-end coding challenge solution.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Table of contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Overview](#overview)
+  - [Preview screenshot](#preview-screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This is a solution to the [launch countdown timer challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Learn More
+### Preview screenshot
 
-To learn more about Next.js, take a look at the following resources:
+![Desktop version preview](./preview/desktop-preview.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Links
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Solution URL: [github.com/lucasweidas/launch-countdown-timer-fm](https://github.com/lucasweidas/launch-countdown-timer-fm)
+- Live Site URL: [launch-countdown-timer.vercel](https://launch-countdown-timer-cyan.vercel.app/)
 
-## Deploy on Vercel
+## My process
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Built with
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Next.js 13](https://nextjs.org/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+
+## Author
+
+- Github - [@lucasweidas](https://github.com/LucasWeidas)
+- Frontend Mentor - [@lucasweidas](https://www.frontendmentor.io/profile/lucasweidas)
