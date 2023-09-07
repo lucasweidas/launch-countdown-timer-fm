@@ -44,17 +44,37 @@ const flipBottomVariants: Variants = {
   },
 };
 
-const END_DATE = new Date(Date.now() + 777_600_000);
+const END_DATE = getEndDate();
 
 export function Countdown() {
-  const { days, hours, minutes, seconds } = useCountdown(END_DATE);
+  const { days, hours, minutes, seconds, isRunning } = useCountdown(END_DATE);
 
   return (
-    <div className="grid grid-cols-2 gap-4 xs:grid-cols-4 md:gap-8">
-      <Timer time={days} label="days" />
-      <Timer time={hours} label="hours" />
-      <Timer time={minutes} label="minutes" />
-      <Timer time={seconds} label="seconds" />
+    <>
+      {isRunning ? (
+        <div className="grid grid-cols-2 gap-4 xs:grid-cols-4 md:gap-8">
+          <Timer time={days} label="days" />
+          <Timer time={hours} label="hours" />
+          <Timer time={minutes} label="minutes" />
+          <Timer time={seconds} label="seconds" />
+        </div>
+      ) : (
+        <EmbedVideo />
+      )}
+    </>
+  );
+}
+
+function EmbedVideo() {
+  return (
+    <div className="aspect-video w-full max-w-[700px] overflow-hidden">
+      <iframe
+        className="h-full w-full"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=r1Jxs4EYnOrAllnj?&autoplay=1"
+        title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
     </div>
   );
 }
@@ -103,9 +123,13 @@ function useCountdown(endAt: Date) {
   const [minutes, setMinutes] = useState(0);
   const [hours, setHours] = useState(0);
   const [days, setDays] = useState(0);
+  const [isRunning, setIsRunning] = useState(true);
 
   useEffect(() => {
-    endDate.current = getLocalEndDate() ?? endAt;
+    const localEndDate = getLocalEndDate();
+    const timeDifference = localEndDate.getTime() - Date.now();
+
+    endDate.current = localEndDate && timeDifference > 0 ? localEndDate : endAt;
     setLocalEndDate(endDate.current);
 
     const interval = setInterval(() => {
@@ -113,6 +137,12 @@ function useCountdown(endAt: Date) {
       const timeBetweenDates = Math.ceil(
         (endDate.current.getTime() - currentDate.getTime()) / 1000,
       );
+
+      if (timeBetweenDates <= 0) {
+        setIsRunning(false);
+        clearInterval(interval);
+        return;
+      }
 
       const newSeconds = timeBetweenDates % 60;
       const newMinutes = Math.floor(timeBetweenDates / 60) % 60;
@@ -137,12 +167,17 @@ function useCountdown(endAt: Date) {
     minutes,
     hours,
     days,
+    isRunning,
   };
+}
+
+function getEndDate() {
+  return new Date(Date.now() + 777_600_000);
 }
 
 function getLocalEndDate() {
   const endDate = localStorage.getItem('endDate');
-  return endDate ? new Date(+endDate) : null;
+  return endDate ? new Date(+endDate) : getEndDate();
 }
 
 function setLocalEndDate(endDate: Date) {
