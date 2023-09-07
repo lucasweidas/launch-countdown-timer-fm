@@ -18,6 +18,7 @@ export default function Home() {
             <Link
               href="#"
               className="text-indigo-400 transition-colors hover:text-rose-300"
+              aria-label="Facebook"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path
@@ -31,6 +32,7 @@ export default function Home() {
             <Link
               href="#"
               className="text-indigo-400 transition-colors hover:text-rose-300"
+              aria-label="Pinterest"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path
@@ -44,6 +46,7 @@ export default function Home() {
             <Link
               href="#"
               className="text-indigo-400 transition-colors hover:text-rose-300"
+              aria-label="Instagram"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                 <path
