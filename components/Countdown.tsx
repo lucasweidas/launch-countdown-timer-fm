@@ -9,8 +9,13 @@ interface TimerProps {
 }
 
 const flipTopVariants: Variants = {
+  initial: {
+    zIndex: -10,
+  },
+  animate: {
+    zIndex: 0,
+  },
   exit: {
-    position: 'absolute',
     zIndex: 10,
     transition: {
       duration: 0.25,
@@ -35,9 +40,8 @@ const flipBottomVariants: Variants = {
     rotateX: '0deg',
   },
   exit: {
-    position: 'absolute',
     transition: {
-      delay: 0.5,
+      delay: 0.55,
       duration: 0,
     },
     opacity: 0,
@@ -65,30 +69,18 @@ export function Countdown() {
   );
 }
 
-function EmbedVideo() {
-  return (
-    <div className="aspect-video w-full max-w-[700px] overflow-hidden">
-      <iframe
-        className="h-full w-full"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=r1Jxs4EYnOrAllnj?&autoplay=1"
-        title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-      ></iframe>
-    </div>
-  );
-}
-
 const Timer = memo(function Timer({ time, label }: TimerProps) {
   return (
     <div className="flex flex-col items-center gap-3 md:gap-6">
-      <div className="relative flex h-timer w-timer flex-col rounded-sm shadow-timer md:h-timer-lg md:w-timer-lg md:rounded-md md:shadow-timer-lg">
-        <AnimatePresence initial={false} mode="popLayout">
+      <div className="relative isolate flex h-timer w-timer flex-col rounded-sm shadow-timer md:h-timer-lg md:w-timer-lg md:rounded-md md:shadow-timer-lg">
+        <AnimatePresence initial={false}>
           <motion.div
             key={crypto.randomUUID()}
             variants={flipTopVariants}
+            initial="initial"
+            animate="animate"
             exit="exit"
-            className="relative flex h-2/4 w-full justify-center overflow-hidden rounded-t-sm bg-corner-t bg-corner-size bg-no-repeat md:rounded-t-md md:bg-corner-t-md"
+            className="absolute left-0 top-0 flex h-2/4 w-full justify-center overflow-hidden rounded-t-sm bg-corner-t bg-corner-size bg-no-repeat md:rounded-t-md md:bg-corner-t-md"
           >
             <span className="absolute top-3.5 text-4xl font-bold leading-none text-rose-300 md:top-[2.125rem] md:text-7xl">
               {time.toString().padStart(2, '0')}
@@ -100,7 +92,7 @@ const Timer = memo(function Timer({ time, label }: TimerProps) {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="relative flex h-2/4 w-full justify-center overflow-hidden rounded-b-sm bg-indigo-700 bg-corner-b bg-corner-size bg-no-repeat md:rounded-b-md md:bg-corner-b-md"
+            className="absolute bottom-0 left-0 flex h-2/4 w-full justify-center overflow-hidden rounded-b-sm bg-corner-b bg-corner-size bg-no-repeat md:rounded-b-md md:bg-corner-b-md"
           >
             <span className="absolute bottom-3.5 text-4xl font-bold leading-none text-rose-300 md:bottom-[2.125rem] md:text-7xl">
               {time.toString().padStart(2, '0')}
@@ -115,6 +107,20 @@ const Timer = memo(function Timer({ time, label }: TimerProps) {
     </div>
   );
 });
+
+function EmbedVideo() {
+  return (
+    <div className="aspect-video w-full max-w-[700px] overflow-hidden">
+      <iframe
+        className="h-full w-full"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=r1Jxs4EYnOrAllnj?&autoplay=1"
+        title="Rick Astley - Never Gonna Give You Up (Official Music Video)"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+}
 
 function useCountdown(endAt: Date) {
   const endDate = useRef(endAt);
